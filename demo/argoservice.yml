@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: argoservice
+  labels:
+    run: argoservice
+spec:
+  type: NodePort
+  ports:
+  - port: 9090
+    targetPort: 9090
+    protocol: TCP
+    nodePort: 30001
+    name: http
+  selector:
+    run: argocdtest

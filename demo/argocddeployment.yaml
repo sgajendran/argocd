@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocdtest-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: argocdtest
+  template:
+    metadata:
+      labels:
+        run: argocdtest
+    spec:
+      containers:
+      - name: be4929-argocdtest
+        image: be4929/argocdtest
+        ports:
+          - containerPort: 9090
